@@ -210,7 +210,7 @@ ISC
 
 ## 👤 Author
 
-Your Name
+Daniel Mulatya
 
 ## 🤝 Contributing
 
