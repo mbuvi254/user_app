@@ -2,6 +2,13 @@
 
 A RESTful API built with Express.js and Prisma ORM for managing user data with SQL Server database.
 
+## Screenshots
+
+<p align="center">
+  <img src="./images/users.png" alt="Users" style="max-width:100%; height:auto;">
+  <img src="./images/view_user.png" alt="User" style="max-width:100%; height:auto;">
+</p>
+
 ## 🚀 Features
 
 - **CRUD Operations**: Complete user management functionality
@@ -11,7 +18,7 @@ A RESTful API built with Express.js and Prisma ORM for managing user data with S
 
 ## 📋 Prerequisites
 
-- Node.js (v14 or higher)
+- Node.js v22.10.0
 - SQL Server (running on localhost:1433)
 - npm or yarn package manager
 
@@ -26,28 +33,33 @@ A RESTful API built with Express.js and Prisma ORM for managing user data with S
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd user_app
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Configure environment variables:
-Create a `.env` file in the root directory:
+   Create a `.env` file in the root directory:
+
 ```env
 DATABASE_URL="sqlserver://localhost:1433;database=users_db;user=SA;password=YOUR_PASSWORD;trustServerCertificate=true;"
 ```
 
 4. Run Prisma migrations:
+
 ```bash
 npx prisma migrate dev
 ```
 
 5. Generate Prisma Client:
+
 ```bash
 npx prisma generate
 ```
@@ -55,10 +67,13 @@ npx prisma generate
 ## 🚦 Running the Application
 
 ### Development Mode
+
 ```bash
 npm run start-server
 ```
+
 or
+
 ```bash
 npx nodemon server.js
 ```
@@ -68,10 +83,41 @@ The server will start on `http://localhost:5000`
 ## 📚 API Endpoints
 
 ### Get All Users
+
 ```http
 GET /users
 ```
+```http
+POST /users
+Content-Type: application/json
+
+{
+  "firstName": "Daniel",
+  "lastName": "Doe",
+  "email": "john@example.com"
+}
+```
+
+```http
+GET /users/:id
+```
+```http
+PATCH /users/:id
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane@example.com"
+}
+```
+
+```http
+DELETE /users/:id
+```
+
 **Response:**
+
 ```json
 [
   {
@@ -87,17 +133,20 @@ GET /users
 ```
 
 ### Create New User
+
 ```http
 POST /users
 Content-Type: application/json
 
 {
-  "firstName": "John",
+  "firstName": "Daniel",
   "lastName": "Doe",
   "email": "john@example.com"
 }
 ```
+
 **Response:**
+
 ```json
 {
   "message": "User Created Successfully",
@@ -114,11 +163,13 @@ Content-Type: application/json
 ```
 
 ### Get User by ID
+
 ```http
 GET /users/:id
 ```
 
 ### Update User
+
 ```http
 PATCH /users/:id
 Content-Type: application/json
@@ -129,7 +180,9 @@ Content-Type: application/json
   "email": "jane@example.com"
 }
 ```
+
 **Response:**
+
 ```json
 {
   "message": "User Updated Success",
@@ -146,10 +199,13 @@ Content-Type: application/json
 ```
 
 ### Delete User (Soft Delete)
+
 ```http
 DELETE /users/:id
 ```
+
 **Response:**
+
 ```json
 {
   "message": "User Marked as deleted successfully",
@@ -168,15 +224,16 @@ DELETE /users/:id
 ## 🗄️ Database Schema
 
 ### User Model
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | Int | Primary Key, Auto-increment |
-| firstName | String | Required |
-| lastName | String | Required |
-| email | String | Required, Unique |
-| isDeleted | Boolean | Default: false |
-| createdAt | DateTime | Auto-generated |
-| updatedAt | DateTime | Auto-updated |
+
+| Field     | Type     | Constraints                 |
+| --------- | -------- | --------------------------- |
+| id        | Int      | Primary Key, Auto-increment |
+| firstName | String   | Required                    |
+| lastName  | String   | Required                    |
+| email     | String   | Required, Unique            |
+| isDeleted | Boolean  | Default: false              |
+| createdAt | DateTime | Auto-generated              |
+| updatedAt | DateTime | Auto-updated                |
 
 ## 🔧 Project Structure
 
@@ -196,12 +253,15 @@ user_app/
 ## 🐛 Troubleshooting
 
 ### Database Connection Issues
+
 If you encounter `Can't reach database server` errors:
+
 1. Ensure SQL Server is running: `systemctl status mssql-server`
 2. Verify credentials in `.env` file
 3. Check if the database exists: `sqlcmd -S localhost -U SA -P 'YOUR_PASSWORD' -C -Q "SELECT name FROM sys.databases"`
 
 ### Module Type Warning
+
 If you see module type warnings, ensure `"type": "module"` is in `package.json`.
 
 ## 📝 License
@@ -210,8 +270,4 @@ ISC
 
 ## 👤 Author
 
-Daniel Mulatya
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
+Daniel Mulatya 

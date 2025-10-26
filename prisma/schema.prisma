@@ -16,11 +16,11 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement()) @map("id")
-  firstName String  @map("firstName")
-  lastName String   @map("lastName")
-  email  String @unique  @map("email")
-  isDeleted Boolean @default(false)
+  id        Int      @id @default(autoincrement()) @map("id")
+  firstName String   @map("firstName")
+  lastName  String   @map("lastName")
+  email     String   @unique @map("email")
+  isDeleted Boolean  @default(false)
   createdAt DateTime @default(now()) @map("createdAt")
   updatedAt DateTime @updatedAt @map("updatedAt")
 
