@@ -236,7 +236,7 @@ DELETE /users/:id
 | createdAt | DateTime | Auto-generated              |
 | updatedAt | DateTime | Auto-updated                |
 
-## 🔧 Project Structure
+## 🔧 Project Structure/Tree
 
 ```
 user_app/
@@ -261,13 +261,6 @@ If you encounter `Can't reach database server` errors:
 2. Verify credentials in `.env` file
 3. Check if the database exists: `sqlcmd -S localhost -U SA -P 'YOUR_PASSWORD' -C -Q "SELECT name FROM sys.databases"`
 
-### Module Type Warning
-
-If you see module type warnings, ensure `"type": "module"` is in `package.json`.
-
-## 📝 License
-
-ISC
 
 ## 👤 Author
 
