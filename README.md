@@ -5,8 +5,8 @@ A RESTful API built with Express.js and Prisma ORM for managing user data with S
 ## Screenshots
 
 <p align="center">
-  <img src="images/users_table.png" alt="Users" style="max-width:100%; height:auto;">
-  <img src="images/view_user.png" alt="User" style="max-width:100%; height:auto;">
+  <img src="./images/users_table.png" alt="Users" style="max-width:100%; height:auto;">
+  <img src="./images/view_user.png" alt="User" style="max-width:100%; height:auto;">
 </p>
 
 ## 🚀 Features
